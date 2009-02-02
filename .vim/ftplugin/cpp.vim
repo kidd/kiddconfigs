@@ -1,0 +1,2 @@
+set iskeyword+=~
+set iskeyword-=:
