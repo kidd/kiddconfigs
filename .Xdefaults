@@ -1,0 +1,12 @@
+!URxvt*termName:xterm
+URxvt*font: 10x20
+URxvt*boldFont: 10x20
+URxvt*reverseVideo: true
+URxvt*color12: #6661ee
+URxvt*keysym.M-u: perl:mark-yank-urls:activate_mark_mode
+URxvt*perl-lib: /home/rgrau/.urxvt/
+URxvt*perl-ext: mark-yank-urls
+URxvt*underlineURLs: true
+!URxvt*termName: screen-256color
+
+URxvt.urlLauncher: firefox

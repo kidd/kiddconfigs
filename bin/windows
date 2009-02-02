@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Lets you switch between all windows in a way that minimizes keystrokes.
+# The windows are listed in the order that you last visited them in.
+
+# Yes, bash is really necessary, because it's version of printf makes this
+# script possible.  Regular bourne shell printf does NOT.
+
+( printf "ratmen --background darkblue -s dreary ";
+  ratpoison -c "windows %l %n %t" | sort -nr | while read w x z; do
+  #if [$z = "aterm"] then
+  a=$(printf "%3q" $x); b="ratpoison -c \"select $x\"";
+  printf " %q\\ %q %q"  "$a" "$z" "$b";
+  #fi
+  done; echo \;) | sh

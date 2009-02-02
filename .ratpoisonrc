@@ -1,0 +1,209 @@
+# find /mnt/hda1/music/  -iname "*$1*-*" | sed -s 's/ /\\ /g'| sed -e 's/(/\\(/g'\ | sed -e 's/)/\\)/g' | xargs mplayer
+#set font -etl-*-*-r-*-*-*-400-*-*-*-*-*-*
+#defbargravity center
+exec xmodmap .xmodmap
+
+set border 3
+set fwcolor orange
+
+set barpadding 0 0 0 0
+set padding 0 0 0 0
+
+#set bgcolor black
+#set fgcolor yellow
+set font -*-fixed-*-*-*-*-20-*-*-*-*-*-*-*
+
+#set font -*-lucida-medium-r-*-*-30-*-*-*-p-*-*-*
+unmanage Buddy List
+unmanage Downloads
+#defbarpadding 0 0 0 0
+set framesels "hjklasdfgyuiopqwertnmzxcvb"
+#defpadding 0 0 0 0
+#defbgcolor darkblue
+#deffgcolor grey
+#deffont -*-lucida-medium-r-*-*-30-*-*-*-p-*-*-*
+
+exec rpws init 5 -ka
+exec xset -b
+
+#exec declare ant_vol=0
+#addhook switchwin banish
+
+#1001 ways to set wallpapers
+#exec xsetbg walls/2001.jpg
+#exec feh --bg-tile wall/ingruppo136.jpg
+#exec Esetroot -scale kandinsky.comp-8.jpg
+#exec feh --bg-scale screen_lynucs_57778899745ef24c25b5a3_1.jpg
+#exec ~/bin/selectwall.pl ~/wall/
+#exec xsetroot -solid black -cursor_name left_ptr
+alias wallpaper exec ~/bin/wallpaper.pl
+#menu
+#bind m exec amixer set Master 0
+#bind m exec ~/bin/menu
+
+
+#switching windows
+bind w exec ~/bin/windows
+bind C-w exec ~/bin/windows
+bind e expose
+bind Escape abort
+
+#terminals.  Now using urxvt
+bind c exec urxvt
+bind C-c exec urxvt -tr -tint ivory -sh 10
+#bind c exec urxvt -tr -tint ivory -sh 10
+#bind C-c exec urxvt
+#bind c exec aterm
+#bind C-c exec aterm
+#bind c exec gnome-terminal
+
+#locking screen
+#bind x exec xlock
+bind x exec xlock -mode starfish -erasedelay 0 -erasetime 0 -nice 20
+definekey top M-F4 exec ~/bin/fuckyou.pl
+
+#bind m exec ratmen OPERA opera MPLAYER 'gmplayer -quiet' Gvim gvim GSlApt 'kdesu -c gslapt' FIREFOX 'firefox' GQView gqview 'MPLAYER NOSOUND' 'gmplayer -nosound' &
+
+
+#REBINDS PARTICULARS
+#bind C-a exec ~/bin/hora
+#bind a exec ~/bin/hora
+
+#aliases
+alias reload exec ratpoison -c "source $HOME/.ratpoisonrc"
+alias screenshot exec ~/bin/screenshot
+alias screenpaste exec ~/bin/screenshot; ~/bin/imup.sh /tmp/screen.jpg
+alias wall exec ~/bin/selectwall.pl
+alias expose exec ~/bin/expose.pl
+alias rsem exec ratpoison -c "echo `rem -c+`"
+alias r exec ratpoison -c "echo `rem`"
+#alias rmen exec ratpoison -c "echo `rem -c`"
+alias popout exec ~/bin/popout.sh
+alias kf exec killall firefox-bin
+#reminders
+bind exclamdown r
+bind C-exclamdown rsem
+
+#workspaces
+bind C-1 exec rpws 1
+bind C-2 exec rpws 2
+bind C-3 exec rpws 3
+bind C-4 exec rpws 4
+bind C-5 exec rpws 5
+bind C-6 exec rpws 6
+
+#frames n'spliting
+bind u undo
+bind C-u undo
+
+bind v hsplit
+bind C-v hsplit
+bind s split
+bind C-s split
+bind q remove
+bind o only
+bind c-o only
+
+# definekey top M-h focusleft
+# definekey top M-l focusright
+# definekey top M-k focusup
+# definekey top M-j focusdown
+
+#bind M-! to store the current frame layout in slot #1
+bind M-exclam exec $RATPOISON -c "setenv fs1 `$RATPOISON -c 'fdump'`"
+#bind M-1 to restore the frame layout in slot #1
+bind M-1 exec $RATPOISON -c "frestore `$RATPOISON -c 'getenv fs1'`"
+
+#play.sh
+##bind P exec name=`ratpoison -c "prompt Play "`; find /mnt/hda1/music/  -iname "*$name*-*" | sed -s 's/ /\\ /g'| sed -e 's/(/\\(/g'\ | sed -e 's/)/\\)/g' | xargs mplayer
+
+#bind P exec ( ~/bin/play.sh ; exit 0 ) #play now embeeded in rat-finder.pl
+
+#bind n exec ( killall mplayer ; exit 0 ) #next
+
+#bind h exec killall -STOP mplayer #halt
+
+#bind g exec killall -CONT mplayer #go
+
+#bind d exec killall play.sh #destroy :)
+
+#escape M-x
+
+bind a exec ratpoison -d :0.0 -c "echo `date +'%r - %A %n    %D - %B'`  `cal -m | tail -n +2 | sed -e 's/^\(lu\|mo\)/\n\n \\1/i' -e 's/.*/ & /' -e \"s/\ $(date +%e)\ /\<$(date +%e)\>/\"`"
+
+
+#if mouse is broken
+newkmap mouse
+definekey mouse C-p ratrelwarp 0 -4
+definekey mouse k ratrelwarp 0 -4
+definekey mouse M-p ratrelwarp 0 -128
+definekey mouse K ratrelwarp 0 -128
+definekey mouse C-n ratrelwarp 0 4
+definekey mouse j ratrelwarp 0 4
+definekey mouse M-n ratrelwarp 0 128
+definekey mouse J ratrelwarp 0 128
+definekey mouse C-b ratrelwarp -4 0
+definekey mouse h ratrelwarp -4 0
+definekey mouse M-b ratrelwarp -128 0
+definekey mouse H ratrelwarp -128 0
+definekey mouse C-f ratrelwarp 4 0
+definekey mouse l ratrelwarp 4 0
+definekey mouse M-f ratrelwarp 128 0
+definekey mouse L ratrelwarp 128 0
+definekey mouse g ratrelwarp 0 -1280
+definekey mouse G ratrelwarp 0 1280
+definekey mouse M-less ratrelwarp 0 -1280
+definekey mouse M-greater ratrelwarp 0 1280
+definekey mouse C-l ratwarp 640 512
+definekey mouse C-a ratrelwarp -1280 0
+definekey mouse C-e ratrelwarp 1280 0
+definekey mouse space ratclick 1
+definekey mouse C-space rathold down 1
+definekey mouse C-g set topkmap top
+bind semicolon set topkmap mouse
+
+
+#new testing stuff
+definekey top C-ntilde exec
+#definekey top C-ntilde exec ~/bin/enye.pl
+bind ntilde focus
+bind C-ntilde focus
+bind C-asciitilde focus
+
+#preparing for switch to us-keyb
+bind C-Ntilde colon
+bind Ntilde colon
+
+bind dead_acute nextscreen
+bind C-dead_acute inext
+bind C-Tab nextscreen
+#ratpoison -c 'fdump' | sed 's/,/\n/g' | sed '/^ *$/d' | sort -n -k 19 | head -1 | sed -r 's/.*:width ([0-9]+) :height ([0-9]+).*/\1x\2/'
+
+bind period inext
+bind C-period inext
+bind comma iprev
+bind C-comma iprev
+
+#screen
+bind F12 exec ~/bin/f12.sh
+
+#great stuff
+#more on http://raimonster.googlepages.com/rat-finder
+bind j exec ~/bin/ratfinder/Unix-RatFinder/script/rat-finder.pl 
+bind C-j exec ~/bin/ratfinder/Unix-RatFinder/script/rat-finder.pl 
+
+#ratpoisonrc
+
+bind plus exec ~/bin/rat-volume.sh 10%+
+bind ccedilla exec ~/bin/rat-volume.sh 10%-
+newkmap vol
+definekey vol plus exec ~/bin/rat-volume.sh 10%+
+definekey vol ccedilla exec ~/bin/rat-volume.sh 10%-
+definekey vol Return set topkmap top
+
+bind M-F2 gmove 2
+bind M-F3 gmove 3
+bind M-F4 gmove 4
+bind M-F5 gmove 5
+bind M-F1 gmove 0
+rudeness 12
