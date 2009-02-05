@@ -152,7 +152,6 @@ hi PmenuSbar    guibg=#dcdccc
 hi PmenuThumb   guifg=#dcdccc
 
 set wildmenu
-nmap ,tn :tabnew<cr>
 set hls
 map ,cd :cd %:p:h<cr>
 set cursorline
@@ -169,6 +168,8 @@ noremap <LocalLeader>v :call Vim_execute()<CR>
 let LocalLeader=","
 let Leader=","
 nnoremap ,t :Tlist<cr>
+nnoremap ,,t :tag 
+set ai
 
 "emacsy insert mode binds
 cnoremap <c-a> <c-b>
@@ -190,7 +191,7 @@ map <F12> :w<cr>:!%<cr>
 au BufRead,BufNewFile *.viki set ft=viki
 inoremap ,tt [%%]<left><left>  <left>
 inoremap <a-l> <right>
-inoremap <a-h> <left>
+"inoremap <a-h> <left>
 set isfname-==
 map ,ww :e ~/.vim/Viki/index<cr>
 
@@ -362,3 +363,11 @@ nmap +e mz/^use Test::More tests<cr><c-a>'z
 nnoremap ,n :NERDTreeToggle<cr>
 let g:ctags_exe='ctags'
 
+set guifont=FreeMono\ 16
+nnoremap 1t :tag 
+let g:tex_flavor='latex'
+"let g:Tex_CompileRule_pdf = 'pdflatex $*'
+let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
+
+let g:Tex_FormatDependency_pdf='pdf'
+let g:Tex_ViewRule_pdf='evince'
