@@ -1,27 +1,41 @@
-;; Time-stamp: <2009-03-03 10:45:35 rgrau>
+;; Time-stamp: <2009-04-17 12:56:26 rgrau>
 
 (add-hook 'before-save-hook 'time-stamp)
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(ecb-options-version "2.32")
- '(ecb-source-path (quote ("/home/rgrau/EA.lib")))
- '(erc-port 8000)
- '(icicle-command-abbrev-alist nil)
- '(icicle-reminder-prompt-flag 0))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
+(add-to-list 'load-path "~/elisp")
+
+;; CEDET y semantic
+
+(load-file "~/elisp/cedet-1.0pre6/common/cedet.el")
+(require 'cedet)
+(require 'cedet-contrib)
+
+;; (global-ede-mode t)
+
+;; (semantic-load-enable-minimum-features)
+;; (semantic-load-enable-gaudy-code-helpers)
+(semantic-load-enable-excessive-code-helpers)
+;; (global-semantic-idle-completions-mode 1)
 
 
+(require 'inf-io)
+
+(global-semantic-idle-completions-mode)
+(global-semantic-tag-folding-mode)
+(require 'semantic-ia)
+;; http://xtalk.msk.su/~ott/en/writings/emacs-devenv/EmacsCedet.html
+;; http://cedet.sourceforge.net/intellisense.shtml
+(semantic-load-enable-semantic-debugging-helpers)
+(require 'semantic-gcc)
+
+(semantic-add-system-include "/usr/include/eo/" 'c++-mode)
+(global-srecode-minor-mode 1)
+
+(add-to-list 'load-path "~/elisp/ecb-2.32/")
+(require 'ecb)
+(require 'ecb-autoloads)
 
 (global-set-key [\M-tab] 'hippie-expand)  
-(add-to-list 'load-path "~/elisp")
+
 (require 'tempo-snippets)
 (tempo-define-snippet "c-for-it"
   '(> "for (" (p "Type: " type) "::iterator " (p "Iterator: " it) " = "
@@ -42,7 +56,7 @@
 (add-to-list 'load-path "~/elisp")
 (require 'tempo-snippets)
 
-(add-hook 'find-file-hook 'flymake-find-file-hook)
+;; (add-hook 'find-file-hook 'flymake-find-file-hook)
 
 (require 'doc-view)
 (recentf-mode t)
@@ -70,9 +84,9 @@
 
 
 ;; icicles
-(add-to-list 'load-path "~/elisp/icicles")
-(load-file "~/elisp/icicles/icicles.el")
- (icy-mode)
+;; (add-to-list 'load-path "~/elisp/icicles")
+;; (load-file "~/elisp/icicles/icicles.el") 
+;;  (icy-mode)
 ;;(icicle-toggle-fuzzy-completion)
 ;;(ido-mode)
 
@@ -105,7 +119,8 @@
 (show-paren-mode t)
 
 ;; (color-theme-dark-blue2)
-(color-theme-tty-dark)
+(require 'color-theme)
+(color-theme-tty-dark)			
 ;(iswitchb-mode)				
 (ido-mode)
 (setq ido-enable-flex-matching t)
@@ -178,6 +193,57 @@ the syntax class ')'."
 
 ; latex
 
-(setq flyspell-default-dictionary "catala-tex")
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex) 
+;; (setq flyspell-default-dictionary "catala-tex")
+;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex) 
+
+
+
+
+;; Flyspell
+
+;; ;; (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t) 
+;; (add-hook 'message-mode-hook 'turn-on-flyspell)
+;; (add-hook 'text-mode-hook 'turn-on-flyspell)
+;; (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
+;; (add-hook 'tcl-mode-hook 'flyspell-prog-mode)
+;; (add-hook 'c++-mode-hook 'flyspell-prog-mode)
+
+
+;; (defun turn-on-flyspell ()
+;;    "Force flyspell-mode on using a positive arg.  For use in hooks."
+;;    (interactive)
+;;    (flyspell-mode 1))
+
+
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ecb-layout-name "left6")
+ '(ecb-options-version "2.32")
+ '(ecb-source-path (quote ("/home/rgrau/EA.lib")))
+ '(erc-port 8000)
+ '(global-semantic-decoration-mode t nil (semantic-decorate-mode))
+ '(global-semantic-highlight-edits-mode t nil (semantic-util-modes))
+ '(global-semantic-highlight-func-mode t nil (semantic-util-modes))
+ '(global-semantic-idle-completions-mode t nil (semantic-idle))
+ '(global-semantic-idle-scheduler-mode t nil (semantic-idle))
+ '(global-semantic-idle-summary-mode t nil (semantic-idle))
+ '(global-semantic-mru-bookmark-mode t nil (semantic-util-modes))
+ '(global-semantic-show-parser-state-mode t nil (semantic-util-modes))
+ '(global-semantic-show-unmatched-syntax-mode t nil (semantic-util-modes))
+ '(global-semantic-stickyfunc-mode t nil (semantic-util-modes))
+ '(global-senator-minor-mode t nil (senator))
+ '(icicle-command-abbrev-alist nil)
+ '(icicle-reminder-prompt-flag 0)
+ '(safe-local-variable-values (quote ((c++-member-init-indent . 8))))
+ '(semanticdb-global-mode t nil (semanticdb))
+ '(which-function-mode t))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
