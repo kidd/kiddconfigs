@@ -1,4 +1,5 @@
 so ~/.vim/plugin/supertab.vim
+
 " An example for a vimrc file.
 "
 " Maintainer:   Bram Moolenaar <Bram@vim.org>
@@ -142,6 +143,12 @@ set encoding=utf8
 nnoremap ,mr :FuzzyFinderMruFile<cr>
 nnoremap ,o :FuzzyFinderFile<cr>
 nnoremap ,b :FuzzyFinderBuffer<cr>
+
+"nnoremap ,mr :FufMruFile<cr>
+"nnoremap ,o :FufFile<cr>
+"nnoremap ,b :FufBuffer<cr>
+"let g:fuf_mrufile_exclude = '\v\~$|\.bak$|\.swp$|\.aux$'
+"let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$$|\.aux$'
 "colorscheme guardian
 colorscheme inkpot
 set foldmethod=marker
@@ -307,7 +314,7 @@ set smartcase
 map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --languages=c++ /usr/include /usr/local/include <CR>
 nnoremap <c-s> :w<cr>:make<cr>
 nnoremap ñ :w<cr>
-nnoremap <c-ñ> :make<cr>
+nnoremap ç :make<cr>
 nnoremap Ñ :
 nnoremap ,wm :w<cr>:make<cr>
 map [[ ?{<CR>w99[{
@@ -358,7 +365,8 @@ nnoremap ,1 :set ft=html.tt
 au BufNewFile,BufRead *.tt2 setf tt2
 au BufNewFile,BufRead *.tt setf tt2
 inoremap {{ {}<left><cr><cr><up>
-iab nperl <esc><F11>I#!/usr/bin/perl<cr>use strict;<cr>use warnings;<esc><F11>o
+iab nperl <esc>:r ~/.vim/perl.template<cr>
+"iab nperl <esc><F11>I#!/usr/bin/perl<cr>use strict;<cr>use warnings;<cr>use Data::Dumper::Perltidy;<esc><F11>o
 nmap +e mz/^use Test::More tests<cr><c-a>'z
 nnoremap ,n :NERDTreeToggle<cr>
 let g:ctags_exe='ctags'
@@ -371,3 +379,39 @@ let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
 
 let g:Tex_FormatDependency_pdf='pdf'
 let g:Tex_ViewRule_pdf='evince'
+
+let g:Imap_PlaceHolderStart = ' <{'
+let g:Imap_PlaceHolderEnd  = '}>'
+
+iab GP programació genètica
+iab GEP Genetic Expression Programming
+iab AE Algoritmes Evolutius
+
+iab son són
+iab qeu que
+let tlist_cpp_settings = 'c++;c:class;f:function'
+
+iab IP IntelligentPharma
+
+
+
+function! InsertPackageFromFile()
+perl << EO_MAP
+    my ($row, $col) = $curwin->Cursor;
+    my $file = $curbuf->Name;
+    $file =~ s/\.pm$//;
+    use List::MoreUtils qw( after );
+    my $package = join '::',
+        after { $_ eq 'lib' }
+        split m{/},
+        $file;
+    my $line = join '',
+        substr($curbuf->Get($row), 0, $col),
+        $package,
+        substr($curbuf->Get($row), $col);
+    $curbuf->Set($row, $line);
+EO_MAP
+endfunction
+
+map ,pp :call InsertPackageFromFile()<CR>
+let g:Perldoc_path="/home/rgrau/.vim/pdoc/"

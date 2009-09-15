@@ -1,0 +1,31 @@
+=======
+HgHowTo
+=======
+
+* http://www.selenic.com/mercurial/wiki/index.cgi/SpanishTutorial
+* http://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html
+* http://wiki.pylonshq.com/display/pylonscookbook/Mercurial+for+Subversion+Users
+
+
+
+
+El proces basic es::
+
+    cd basic
+    vi hola.c
+    hg init
+    (canvis)
+    cd ..
+    hg clone basic copia    # clona el repositori (no el changeset)
+    cd copia
+    vi hola.c
+    hg commit
+    cd ..
+    hg clone copia copia2
+    cd copia2
+    hg pull ../copia  # importa el changeset (pero no l'aplica)
+    hg update #aplica els changesets del repositori actual
+    hg merge #aplica els changesets del repositori actual amb mes bon rollo
+    hg fetch #fa pull+merge o pull+update segons creu millor
+
+

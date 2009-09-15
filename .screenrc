@@ -3,10 +3,12 @@ caption always "%{wb}%n%f %t %{wk} %?%-Lw%?%{wb}[%n*%f %t]%?(%u)%?%{wk}%?%+Lw%? 
 #hardstatus alwayslastline "%{+b kr}host: %{kw}%H%{kg} %c - %D %d.%m.%Y %{kr}(load: %l) %-26=%1`"
 bind o only
 bind s split
+defutf8 on
  
 termcapinfo rxvt-unicode 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 term rxvt-unicode
+
 #term screen-256color
 #altscreen on
 #vbell off

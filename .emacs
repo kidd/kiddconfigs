@@ -1,4 +1,4 @@
-;; Time-stamp: <2009-04-17 12:56:26 rgrau>
+;; Time-stamp: <2009-06-12 10:28:59 rgrau>
 
 (add-hook 'before-save-hook 'time-stamp)
 (add-to-list 'load-path "~/elisp")
@@ -239,6 +239,7 @@ the syntax class ')'."
  '(icicle-command-abbrev-alist nil)
  '(icicle-reminder-prompt-flag 0)
  '(safe-local-variable-values (quote ((c++-member-init-indent . 8))))
+ '(scheme-program-name "mzscheme")
  '(semanticdb-global-mode t nil (semanticdb))
  '(which-function-mode t))
 (custom-set-faces
@@ -247,3 +248,18 @@ the syntax class ')'."
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
+
+
+(setenv "LIBRARY_PATH" "/usr/local/lib")
+(setenv "CPLUS_INCLUDE_PATH" "/usr/local/include/eo")
+;;(setenv “PATH” (concat (getenv “PATH”) “:/usr/local/cuda/bin”))
+
+(defvar erc-read-only-channels
+  '("#emacs-es")
+  "Lista de canales read-only.")
+  
+(defun erc-toggle-read-only ()
+  (when (member (buffer-name) erc-read-only-channels)
+    (toggle-read-only 1)))
+  
+(add-hook 'erc-join-hook 'erc-toggle-read-only)

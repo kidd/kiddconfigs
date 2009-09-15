@@ -1,0 +1,21 @@
+GeneticAlgorithms
+-----------------
+
+Glossari
+........
+
+* No Free Lunch
+* Fitness Landscape
+* Niche penalty
+
+
+Resources
+.........
+
+La interfície serà implementada en perl+Catalyst 
+
+Els algoritmes utilitzaran EO, OPEAL o be les Natx-lib
+
+EoRepresentation
+
+# vim: set ft=viki : ##

@@ -1,0 +1,8 @@
+PerlMol : mola mazo
+
+OpenBabel. mola mazo y es en c++:
+http://openbabel.org/api/2.2.0/classOpenBabel_1_1OBMol.shtml#1e5c6955a32c0ec2317a8de12ab7ba5a
+separa una molecula en parts connexes
+
+
+# vim: set ft=viki : ##

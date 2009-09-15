@@ -1,0 +1,7 @@
+
+touch {1..21}.hola
+
+
+canviar tots els . per _ menys els 2 ultims
+zmv '(*.*)(.*)(.*)' '${1//./_}$2$3'
+

@@ -1,0 +1,43 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Data::Dumper::Perltidy;
+use Getopt::Long;
+use Pod::Usage;
+use Perl6::Say;
+
+sub man {#{{{
+	pod2usage(
+		-exitval => 1,
+		-verbose => 2
+	);
+}#}}}
+
+# main
+GetOptions (
+	'man' => \&man,
+);
+
+__END__#{{{
+
+=head1 NAME
+
+
+=head1 SEE ALSO
+
+
+=head1 SYNOPSIS
+
+
+=head1 DESCRIPTION
+
+=head1 AUTHOR
+
+Raimon Grau Cuscó <raimonster@gmail.com>
+
+=head1 Credits
+
+=cut
+
+# vim: set tabstop=4 shiftwidth=4 foldmethod=marker : ###}}}

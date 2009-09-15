@@ -1,0 +1,97 @@
+ 85<kidd> hi. Is there a way to sort an array and return the first element ,
+ 86       without using temporary vars? It's a fairly big array...         [11:57]
+ 87<Zoffix> eval: (sort qw/foo bar baz/)[0]
+ 88<buubot> Zoffix:  "bar"
+ 89<Zoffix> kidd, ^                                                        [11:58]
+ 90<kidd> Zoffix: thanks, that's what I was trying, but didn't work... it must be
+ 91       some syntax error of mine                                        [11:59]
+ 92<ne2k__> kidd: you might be better off just going through the list once
+ 93         looking for the "lowest" element so far, and then return that. it's
+ 94         O(n), but it doesn't use any more RAM than just the array
+ 95<ne2k__> kidd: plus your single variable for "lowest so far"
+ 96<Zoffix> eval: ($x) = sort qw/foo bar baz/; $x
+ 97<buubot> Zoffix:  "bar"
+ 98<Zoffix> kidd, ^^ another way
+ 99*** Amidamaru (n=Amidamar@p54A0B88C.dip0.t-ipconnect.de) has quit: Remote
+100    closed the connection                                               [12:00]
+101<Zoffix> meh, who gives a shit about RAM these days.
+102*** wpecker (n=wp@bl10-148-244.dsl.telepac.pt) has quit: Read error: 104
+103    (Connection reset by peer)                                          [12:01]
+104<Altreus> well if you've got a 1GB file in RAM as an array of lines...  [12:02]
+105*** onur (n=onur@0nur.net) has joined channel #perl                     [12:03]
+106<ne2k__> eval: @a = (5, 32, 65, 9, 4, 8, 94); for(@a){ if(defined $t){ $t = $_
+107         if $_ < $t; }else{ $t = $_; } } [$t]
+108<buubot> ne2k__:  [4]
+109<ne2k__> Zoffix: well, when designing an algorithm, you've pretty much always
+110         got a trade-off between speed and memory; you have to decide which is
+111         more important to you for a given application                  [12:04]
+112<kidd> I think I have enough solutions to learn from ;) thank you guys!
+165<ne2k__> eval: @a = (512, 32, 65, 94, 424, 863, 1312); sub less { ($a, $b) =                                                              
+166         @_; return ($a<$b)?$a:$b; } sub leastlist{ my ($head, @tail) = @_;                                                               
+167         if(@tail) { return less($head, leastlist(@tail)); } else { return                                                                
+168         $head; }}; [leastlist(@a)];
+[12:42]                                                           
+169<buubot> ne2k__:  [32]
+
+
+--------
+
+<OzFalcon> Where is best practice to define a DialogBox? In the Main trunk or                                                             
+195           in a Sub with: if (not defined $MyDialogBox) {Define Dialog}                                                                   
+196<icke> ($a, $b)[$a > $b]                                                [13:03]                                                           
+197*** hever (n=hever@ip-78-94-189-221.unitymediagroup.de) has joined channel                                                                
+198    #perl                                                               [13:04]                                                           
+199*** suk (i=suk@82-38-131-190.cable.ubr02.hali.blueyonder.co.uk) has quit:                                                                 
+200    "..."                                                                                                                                 
+201<simcop2387> eval: $a=0; $b=1; ($a, $b)[$a > $b]                        [13:05]                                                           
+202<buubot> simcop2387:  0                                                                                                                   
+203<simcop2387> eval: $a=0; $b=1; ($a, $b)[$a < $b]                                                                                          
+204<buubot> simcop2387:  1                                                                                                                   
+205<simcop2387> hmm                                                                                                                          
+206*** jovs (n=jovs@unaffiliated/jovs) has joined channel #perl                                                                              
+207<Botje> pfft.                                                           [13:10]                                                           
+208<Botje> eval: ($a,$b) = (0,1); [$a => $b]->[$a <= $b]                   [13:11]                                                           
+209<buubot> Botje:  1                                                                                                                        
+210<icke> yeah, that's the origin                                                                                                            
+211*** CowBook (n=cowboy@96.237.188.158) has joined channel #perl                                                                            
+212*** GibbaTheHutt (n=moo@78-86-223-95.zone2.bethere.co.uk) has quit: Remote                                                                
+213    closed the connection                                               [13:12]                                                           
+214*** sri_kraih_ (n=sri@p5489C782.dip.t-dialin.net) has joined channel #perl                                                                
+215                                                                        [13:13]                                                           
+216*** nickm_ (n=t5edc4b@12.170.205.77) has quit: Read error: 110 (Connection                                                                
+217    timed out)                                                          [13:14]                                                           
+218*** GibbaTheHutt (n=moo@78-86-223-95.zone2.bethere.co.uk) has joined channel                                                              
+219    #perl                                                                                                                                 
+220*** grzegostwor (n=a@inet20908na-1.eranet.pl) has quit:                 [13:15]                                                           
+221<icke> qw(slow right fast)[1 + ($t <=> $time)]               
+
+
+for (1 .. $#array){print "$_\n";}
+
+natatime
+
+
+-------
+
+eval: @a = qw/foo bar baz/; sprintf "%-10s"x@a, @a; 
+push @noips, ('') x (5 - (@noips % 5)) if @noips % 5;
+
+--------------
+
+<Zapelius> how can I do a *{__PACKAGE__.'::foo'} = sub {}; so that I have N
+	   instances of that object with different sub{}'s ?	        [13:15]
+<Zapelius> so that that above would be done in new()
+<Zapelius> that above redefines existing subs			        [13:16]
+<Zapelius> not referring to a object
+<Caelum> Zapelius: use an accessor instead?			        [13:17]
+<f00li5h> Zapelius: stick the sub, as a sub-ref inside the instance of the
+	  class, and call it with a method
+<f00li5h> sub pawing { $self = shift; $self->{pawing_sub}->(@_) }
+*** icke (n=anno@84.191.210.153) has joined channel #perl	        [13:18]
+<Zapelius> hmm...						        [13:19]
+<Caelum> f00li5h++ # perfect solution				        [13:20]
+* f00li5h is a helper!
+* f00li5h wonders how to port that to java ;)
+*** awayekos (n=anekos@pl476.nas926.p-osaka.nttpc.ne.jp) is now known as
+    anekos							        [13:21]
+<Zapelius> yeah, that's how I'm going to do it. thanks :)

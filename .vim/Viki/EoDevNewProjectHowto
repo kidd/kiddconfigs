@@ -1,0 +1,33 @@
+EoDevNewProjectHowto
+====================
+
+.. title:: EO project HowTo
+
+.. contents:: Index
+
+Intro
+-----
+
+
+llegir a fons l'arxiu ~/eoWeb2/eo/tutorial/Templates/README
+::
+
+  export CPLUS_INCLUDE_PATH=/usr/local/include/eo:"$CPLUS_INCLUDE_PATH"
+  export LIBRARY_PATH=/usr/local/lib:"$LIBRARY_PATH"
+
+
+touch configure.ac && autoreconf
+in the source-directory and 
+make 
+in the build-directory (which might or might not be the same for you).
+
+When you add additional source files to the project, simply add them
+to the <myproj>_SOURCES variable in src/Makefile.am. Header files
+should be added to noinst_HEADERS.
+
+Provar automake --gnu --add-missing pel mig
+
+
+
+
+.. # vim: set tabstop=4 shiftwidth=4 foldmethod=marker ft=rst: ##

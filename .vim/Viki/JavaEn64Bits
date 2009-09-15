@@ -1,0 +1,11 @@
+JavaEn64Bits
+------------
+
+
+Executar ~/Desktop/j2sdk-1.4.2-03-linux-amd64.bin
+
+crear ~/.mozilla/plugins/libjavaplugin_oji.so fent un soft link al dir de
+plugins creat del comando anterior.
+
+libjavaplugin_oji.so -> /home/rgrau/Desktop/j2sdk1.4.2/jre/plugin/amd64/mozilla/libjavaplugin_oji.so
+

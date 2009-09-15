@@ -1,0 +1,16 @@
+Install openbabel
+=================
+
+http://openbabel.org/wiki/Install_%28source_code%29#Installing_globally_with_root_access
+substituir fingerprint.cpp i fingerprint.h pels de la web anterior
+
+configure && make &&make install
+cd script/perl
+perl Makefile.PL
+make 
+make test   # si falla, sudo ldconfig perque trovi libopenbabel.so.3 http://www.nabble.com/Re:-OpenBabel-and-Chemistry::OpenBabel-td19313701.html
+make install
+cd /usr/local/include/
+sudo ln -s OpenBabel-2.0/openbabel 
+
+

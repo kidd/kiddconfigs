@@ -1,0 +1,6 @@
+Random numbers in a range
+=========================
+
+ (float)rand()*(max-min)+min
+
+# vim: set ft=viki : ##

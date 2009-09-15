@@ -1,0 +1,9 @@
+# vim: set ft=viki : ##
+
+Subclass a non-moose class
+--------------------------
+
+package My::Moosey::Class;
+use Moose;
+extends 'Non::Moose::Class', 'Moose::Object';
+

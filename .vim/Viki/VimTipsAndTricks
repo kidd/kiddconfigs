@@ -1,0 +1,16 @@
+per sumar 100 a cada primer '"numero'    de cada linia.
+s:"\zs\(\d\+\):\=submatch(1)+100:
+
+vi  sql/*sql -c ":set hidden" -c ":bufdo :%s:\"\zs\(\d\+\):\=submatch(1)+2133:"
+
+
+Instalar Font Termiunus
+-----------------------
+
+sudo mkdir /usr/share/fonts/truetype/terminus
+sudo cp TerminusBold.ttf Terminus.ttf /usr/share/fonts/truetype/terminus
+sudo fc-cache -f -v
+
+
+terminus font: http://fractal.csie.org/~eric/wiki/Terminus_font
+ref: http://ubuntuforums.org/showthread.php?t=241196

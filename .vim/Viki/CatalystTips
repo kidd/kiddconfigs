@@ -1,0 +1,31 @@
+CatalystTips
+------------
+
+Installation
+------------
+
+Catalyst
+Zlib-dev en apt-get
+Catalyst::Helper::View
+Catalyst::Helper::Controller
+
+
+Erratas
+-------
+
+page 55 :
+	$c->form....   es $self->formbuilder
+
+form.render  es FormBuilder.render 
+
+
+En el controlador: 
+#use parent 'Catalyst::Controller';
+use base qw/Catalyst::Controller::FormBuilder Catalyst::Controller::BindLex/;
+
+
+info en
+http://grokbase.com/post/2008/02/26/catalyst-formbuilder-can-t-locate-object-method-form-via-package/H0sNOrS7mZ0l0cHGxM0AJMS2oIY
+
+
+# vim: set ft=viki : ##

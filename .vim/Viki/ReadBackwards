@@ -1,0 +1,14 @@
+reverse a file linewise
+-----------------------
+
+ifstream file("customer.txt") ;
+string rec ;
+vector<string> records ;
+while( getline(file,rec) ) 
+    records.push_back(rec) ;
+    ...
+ofstream outfile("custFileCopy.txt") ;
+std::copy( records.rbegin(), records.rend(),
+        std::ostream_iterator<string>(outfile) );
+
+# vim: set ft=viki : ##

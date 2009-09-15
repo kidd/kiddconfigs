@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdarg.h>
+
+int Add(int a,int b,...)
+{
+
+    //This one handles 4 arguments in total.
+    int l_ParamVal=0;
+    int total=0;
+    int i;
+
+    //Declare a va_list macro and initialize it with va_start
+    va_list l_Arg;
+    va_start(l_Arg,a);
+
+    //The required parameters can also be accessed directly
+    l_ParamVal = a;
+    printf("%d\n",l_ParamVal);
+    if(l_ParamVal != -1)
+    total = total +l_ParamVal;
+
+    l_ParamVal = va_arg(l_Arg,int);
+    printf("%d\n",l_ParamVal);
+    if(l_ParamVal != -1)
+    total = total +l_ParamVal;
+
+    l_ParamVal = va_arg(l_Arg,int);
+    printf("%d\n",l_ParamVal);
+    if(l_ParamVal != -1)
+    total = total +l_ParamVal;
+
+    l_ParamVal = va_arg(l_Arg,int);
+    printf("%d\n",l_ParamVal);
+    if(l_ParamVal != -1)
+    total = total +l_ParamVal;
+
+    va_end(l_Arg);
+
+    return total;
+
+}
+
+void main()
+{
+
+    printf("Total of C++ Variable Arguments: %d\n",Add(2,3,4));
+
+}
+
+# vim: set ft=viki.c++ syntax=c++: ##

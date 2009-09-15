@@ -1,0 +1,27 @@
+Main Header
+===========
+:Author:    Raimon Grau Cuscó 
+:Email:     rgrau@intelligentpharma.com  
+:Date:       Fri Aug 22 14:33:40 CEST 2008
+:Revision:  1
+
+JavaEn64Bits
+------------
+
+
+Executar ~/Desktop/j2sdk-1.4.2-03-linux-amd64.bin
+
+crear ~/.mozilla/plugins/libjavaplugin_oji.so fent un soft link al dir de
+plugins creat del comando anterior.
+
+
+----
+ls -las ~/.mozilla/plugins/
+total 12
+4 drwxr-xr-x 2 rgrau ip 4096 2008-08-18 16:00 .
+4 drwx------ 6 rgrau ip 4096 2008-08-18 15:59 ..
+4 lrwxrwxrwx 1 rgrau ip   76 2008-08-18 16:00 libjavaplugin_oji.so -> /home/rgrau/Desktop/j2sdk1.4.2/jre/plugin/amd64/mozilla/libjavaplugin_oji.so
+----
+
+
+

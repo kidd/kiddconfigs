@@ -20,7 +20,7 @@ exec "Snippet unless unless (".st.et.") {<CR>".st.et."<CR>}<CR>".st.et
 exec "Snippet ifee if (".st.et.") {<CR>".st.et."<CR><BS>} elsif (".st.et.") {<CR>".st.et."<CR><BS>} else {<CR>".st.et."<CR>}<CR><CR>".st.et
 exec "Snippet ife if (".st.et.") {<CR>".st.et."<CR>} else {<CR>".st.et."<CR>}<CR>".st.et
 exec "Snippet for for (my \$".st."var".et." = 0; \$".st."var".et." < ".st."expression".et."; \$".st."var".et."++) {<CR>".st.et."<CR>}<CR>".st.et
-exec "Snippet fore fore (@".st."array".et.") {<CR><tab>".st.et."<CR>}<CR>".st.et
+exec "Snippet fore for (".st."array".et.") {<CR>".st.et."<CR>}<CR>".st.et
 exec "Snippet eval eval {<CR>".st.et."<CR>};<CR>if ($@) {<CR>".st.et."<CR>}<CR>".st.et
 exec "Snippet while while (".st.et.") {<CR>".st.et."<CR>}<CR>".st.et
 exec "Snippet xif ".st."expression".et." if ".st."condition".et.";".st.et

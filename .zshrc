@@ -79,6 +79,7 @@ export PATH="${JAVA_HOME}/bin:${PATH}"
 #alias javac='/usr/lib/java/bin/javac'
 alias \:q=exit
 alias lsd='ls -d *(/)'
+alias gvi='gvim'
 alias lst='ls -ltr'
 alias ls='ls  --color=auto'
 alias lsç='ls  --color=auto'
@@ -87,7 +88,13 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 
-alias sshuni='ssh alu9854@exthost.etsii.ull.es'
+
+alias ts="prove --state=slow,save -j3 -r"
+alias tf="prove --state=failed,save -v -r"
+
+
+alias sshuni='ssh alu9854@exthost.etsii.ull.es'      
+# 4oU8zN
 alias screenuni='screen -t sshuni -c ~/.screenrc2'
 
 #alias hide='echo -en "\033]50;nil2\007"'
@@ -107,7 +114,7 @@ alias normal=default
 
 #screen integration to set caption bar dynamically
 function title {
-if [[ $TERM == "screen"  || $TERM == "screen-256color" || $TERM == "screen.linux" ]]; then
+if [[ $TERM == "screen"  || $TERM == "screen-256color-bce"|| $TERM == "screen-256color" || $TERM == "screen.linux" ]]; then
 	# Use these two for GNU Screen:
 	print -nR $'\033k'$1$'\033'\\\
 
@@ -180,10 +187,12 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 zstyle ':completion:*' menu select=3
 
 function cd () {
-  if [[ -f $1 ]]; then
-      builtin cd $1:h
-    else
-	    builtin cd $1
-	  fi
-  }
+if [[ -f $1 ]]; then
+	builtin cd $1:h
+else
+	builtin cd $1
+fi
+}
 
+export CPLUS_INCLUDE_PATH=/usr/local/include/eo:"$CPLUS_INCLUDE_PATH"
+export LIBRARY_PATH=/usr/local/lib:"$LIBRARY_PATH"
