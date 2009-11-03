@@ -4,7 +4,7 @@ bindkey "jk" vi-cmd-mode
 bindkey '^O' push-line
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
-#export EDITOR="vim"
+export EDITOR="vim"
 
 exec 2>>(while read line; do
 print '\e[91m'${(q)line}'\e[0m' > /dev/tty;
@@ -72,6 +72,7 @@ alias -g TL='| tail -20'
 alias -g T='| tail'
 alias -g tr='-ltr'
 alias -g X='| xclip'
+alias -g L='| less'
 
 export JAVA_HOME="/usr/lib/java"
 export PATH="${JAVA_HOME}/bin:${PATH}"

@@ -1,11 +1,12 @@
 #!/usr/bin/perl
 
-use strict;
-use warnings;
 use Data::Dumper::Perltidy;
 use Getopt::Long;
-use Pod::Usage;
 use Perl6::Say;
+use Pod::Usage;
+use autodie;
+use strict;
+use warnings;
 
 sub man {#{{{
 	pod2usage(

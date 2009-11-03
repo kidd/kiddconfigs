@@ -1,4 +1,4 @@
-;; Time-stamp: <2009-06-12 10:28:59 rgrau>
+;; Time-stamp: <2009-09-18 09:32:19 rgrau>
 
 (add-hook 'before-save-hook 'time-stamp)
 (add-to-list 'load-path "~/elisp")
@@ -255,7 +255,7 @@ the syntax class ')'."
 ;;(setenv “PATH” (concat (getenv “PATH”) “:/usr/local/cuda/bin”))
 
 (defvar erc-read-only-channels
-  '("#emacs-es")
+  '("#lisp" "#perl6" )
   "Lista de canales read-only.")
   
 (defun erc-toggle-read-only ()
@@ -263,3 +263,5 @@ the syntax class ')'."
     (toggle-read-only 1)))
   
 (add-hook 'erc-join-hook 'erc-toggle-read-only)
+(require 'geiser-install)
+(setq geiser-impl-installed-implementations '(mzscheme plt))

@@ -15,8 +15,8 @@ noremap ,vimrc :!gvim -f ~/.vimperatorrc<cr>
 
 " AutoCommands
 au LocationChange .* js modes.passAllKeys = /mail\.google\.com/.test(buffer.URL)
-au LocationChange .* :set editor=gvim -f
-au LocationChange mail\.google\.com :set editor=gvim -f -c 'set ft=mail'
+"au LocationChange .* :set editor=gvim -f
+"au LocationChange mail\.google\.com :set editor=gvim -f -c 'set ft=mail'
 
 set titlestring='Firefox Vimperator'
 set defsearch='yubnub'

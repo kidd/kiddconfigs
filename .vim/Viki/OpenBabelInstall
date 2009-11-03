@@ -8,9 +8,18 @@ configure && make &&make install
 cd script/perl
 perl Makefile.PL
 make 
-make test   # si falla, sudo ldconfig perque trovi libopenbabel.so.3 http://www.nabble.com/Re:-OpenBabel-and-Chemistry::OpenBabel-td19313701.html
+make test   # si falla, sudo ldconfig perque trobi libopenbabel.so.3 http://www.nabble.com/Re:-OpenBabel-and-Chemistry::OpenBabel-td19313701.html
 make install
 cd /usr/local/include/
 sudo ln -s OpenBabel-2.0/openbabel 
+
+
+FAQ
+---
+
+Compile error: /usr/bin/ld: cannot find -lz
+
+Install zlib1g-dev
+
 
 
