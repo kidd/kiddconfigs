@@ -1,4 +1,4 @@
-;; Time-stamp: <2009-09-18 09:32:19 rgrau>
+;; Time-stamp: <2009-12-22 11:19:22 rgrau>
 
 (add-hook 'before-save-hook 'time-stamp)
 (add-to-list 'load-path "~/elisp")
@@ -265,3 +265,6 @@ the syntax class ')'."
 (add-hook 'erc-join-hook 'erc-toggle-read-only)
 (require 'geiser-install)
 (setq geiser-impl-installed-implementations '(mzscheme plt))
+
+(require 'cssh)
+(setq cssh-buffer-list '("hermes" "ares"))
