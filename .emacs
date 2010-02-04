@@ -1,4 +1,4 @@
-;; Time-stamp: <2009-12-22 11:19:22 rgrau>
+;; Time-stamp: <2010-02-04 12:26:42 rgrau>
 
 (add-hook 'before-save-hook 'time-stamp)
 (add-to-list 'load-path "~/elisp")
@@ -121,11 +121,15 @@
 ;; (color-theme-dark-blue2)
 (require 'color-theme)
 (color-theme-tty-dark)			
+(color-theme-gray30)
+
+
 ;(iswitchb-mode)				
 (ido-mode)
 (setq ido-enable-flex-matching t)
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.t$" . cperl-mode))
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
@@ -154,6 +158,7 @@
 (setq org-log-done t)			
 (tool-bar-mode -1)
 (display-time-mode)
+(setq inhibit-startup-message t)
 (setq european-calendar-style 't)
 ;(define-key viper-insert-global-user-map (kbd "jk") 'viper-intercept-ESC-key)
 
@@ -268,3 +273,15 @@ the syntax class ')'."
 
 (require 'cssh)
 (setq cssh-buffer-list '("hermes" "ares"))
+
+
+;; C and c++
+(setq tab-width 4)
+
+(add-hook 'c-mode-hook
+	  '(lambda()
+	    (c-set-style "stroustrup")))
+
+(add-hook 'c++-mode-hook
+	  '(lambda()
+	    (c-set-style "stroustrup")))
