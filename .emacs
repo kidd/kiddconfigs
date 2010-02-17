@@ -1,4 +1,4 @@
-;; Time-stamp: <2010-02-04 12:26:42 rgrau>
+;; Time-stamp: <2010-02-04 14:03:31 rgrau>
 
 (add-hook 'before-save-hook 'time-stamp)
 (add-to-list 'load-path "~/elisp")

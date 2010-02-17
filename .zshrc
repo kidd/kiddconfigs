@@ -65,6 +65,11 @@ setopt MAGIC_EQUAL_SUBST   # Expand inside equals
 setopt EXTENDED_GLOB
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
+setopt prompt_subst
+
+
+autoload colors
+colors
 
 (ls --help 2>/dev/null |grep -- --color=) >/dev/null && \
 
@@ -197,3 +202,20 @@ fi
 
 export CPLUS_INCLUDE_PATH=/usr/local/include/eo:"$CPLUS_INCLUDE_PATH"
 export LIBRARY_PATH=/usr/local/lib:"$LIBRARY_PATH"
+
+function hg_prompt_info {
+    hg prompt --angle-brackets "\
+< on %{$fg[magenta]%}<branch>%{$reset_color%}>\
+#< at %{$fg[yellow]%}<tags|%{$reset_color%}, %{$fg[yellow]%}>%{$reset_color%}>\
+%{$fg[green]%}<status|modified|unknown><update>%{$reset_color%}<
+#patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset_color%})|pre_unapplied(%{$fg_bold[black]%})|post_unapplied(%{$reset_color%})>>" 2>/dev/null
+}
+
+function prompt_char {
+    hg root >/dev/null 2>/dev/null && echo '☿' && return
+    git branch >/dev/null 2>/dev/null && echo '±' && return
+    echo '○'
+}
+
+PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(hg_prompt_info)'
+#RPROMPT='$(prompt_char)'
