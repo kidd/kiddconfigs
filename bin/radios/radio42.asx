@@ -1,0 +1,58 @@
+<ASX version="3.0" BANNERBAR="AUTO">
+<ABSTRACT>#Musik.Lounge : Music for Lounge-Lovers. Downtempo.NuJazz.Ambient.Chillout.Lounge.Groove. Finest electronica chillout house nujazz funky beats provided by RauteMusik.FM and Global24Music.com</ABSTRACT>
+<TITLE>#Musik.Lounge : Music for Lounge-Lovers</TITLE>
+<AUTHOR>http://www.rautemusik.fm</AUTHOR>
+<LOGO href = "http://www.radio42.eu/images/42s.gif" Style = "ICON" />
+<LOGO href = "http://www.radio42.eu/images/logo_radio42.gif" Style = "MARK" />
+<MOREINFO href="http://www.radio42.eu" />
+<REPEAT>
+<ENTRY CLIENTSKIP="YES">
+  <ABSTRACT>#Musik.Lounge : Music for Lounge-Lovers. Downtempo.NuJazz.Ambient.Chillout.Lounge.Groove. Finest electronica chillout house nujazz funky beats provided by RauteMusik.FM and Global24Music.com</ABSTRACT>
+  <TITLE>#Musik.Lounge (128k-Server#1) : Music for Lounge-Lovers</TITLE>
+  <LOGO href = "http://www.radio42.eu/images/42s.gif" Style = "ICON" />
+  <LOGO href = "http://www.radio42.eu/images/logo_radio42.gif" Style = "MARK" />
+  <PARAM NAME="HTMLView" VALUE="http://www.radio42.eu/pls.html"/>
+  <REF HREF="http://lounge-high.rautemusik.fm" />
+  <PARAM NAME="Genre" VALUE="Ambient, Chillout, House, Soul, Funk, Lounge, Dance, NuJazz, Electronica, Latin, RnB." />
+  <PARAM NAME="Homepage" VALUE="http://www.radio42.eu" />
+  <AUTHOR>http://www.rautemusik.fm</AUTHOR>
+  <MOREINFO HREF="http://www.radio42.eu" />
+  <BANNER HREF="http://www.radio42.eu/images/logo_radio42.gif">
+          <MOREINFO href ="http://www.radio42.eu" />
+          <ABSTRACT>Visit also the homepage of r.a.d.i.o. 4 2 : Music for Lounge-Lovers. Downtempo.NuJazz.Ambient.Chillout.Lounge.Groove. Finest electronica chillout house nujazz funky beats provided by RauteMusik.FM and Global24Music.com</ABSTRACT>
+  </BANNER>
+</ENTRY>
+<ENTRY CLIENTSKIP="YES">
+  <ABSTRACT>#Musik.Lounge : Music for Lounge-Lovers. Downtempo.NuJazz.Ambient.Chillout.Lounge.Groove. Finest electronica chillout house nujazz funky beats provided by RauteMusik.FM and Global24Music.com</ABSTRACT>
+  <TITLE>#Musik.Lounge (48k-Server#1) : Music for Lounge-Lovers</TITLE>
+  <LOGO href = "http://www.radio42.eu/images/42s.gif" Style = "ICON" />
+  <LOGO href = "http://www.radio42.eu/images/logo_radio42.gif" Style = "MARK" />
+  <PARAM NAME="HTMLView" VALUE="http://www.radio42.eu/pls.html"/>
+  <REF HREF="http://lounge-low.rautemusik.fm" />
+  <PARAM NAME="Genre" VALUE="Ambient, Chillout, House, Soul, Funk, Lounge, Dance, NuJazz, Electronica, Latin, RnB." />
+  <PARAM NAME="Homepage" VALUE="http://www.radio42.eu" />
+  <AUTHOR>http://www.rautemusik.fm</AUTHOR>
+  <MOREINFO HREF="http://www.radio42.eu" />
+  <BANNER HREF="http://www.radio42.eu/images/logo_radio42.gif">
+          <MOREINFO href ="http://www.radio42.eu" />
+          <ABSTRACT>Visit also the homepage of r.a.d.i.o. 4 2 : Music for Lounge-Lovers. Downtempo.NuJazz.Ambient.Chillout.Lounge.Groove. Finest electronica chillout house nujazz funky beats provided by RauteMusik.FM and Global24Music.com</ABSTRACT>
+  </BANNER>
+</ENTRY>
+<ENTRY CLIENTSKIP="YES">
+  <ABSTRACT>#Musik.Lounge : Music for Lounge-Lovers. Downtempo.NuJazz.Ambient.Chillout.Lounge.Groove. Finest electronica chillout house nujazz funky beats provided by RauteMusik.FM and Global24Music.com</ABSTRACT>
+  <TITLE>#Musik.Lounge (48k-Server#1) : Music for Lounge-Lovers</TITLE>
+  <LOGO href = "http://www.radio42.eu/images/42s.gif" Style = "ICON" />
+  <LOGO href = "http://www.radio42.eu/images/logo_radio42.gif" Style = "MARK" />
+  <PARAM NAME="HTMLView" VALUE="http://www.radio42.eu/pls.html"/>
+  <REF HREF="http://lounge-aacp.rautemusik.fm" />
+  <PARAM NAME="Genre" VALUE="Ambient, Chillout, House, Soul, Funk, Lounge, Dance, NuJazz, Electronica, Latin, RnB." />
+  <PARAM NAME="Homepage" VALUE="http://www.radio42.eu" />
+  <AUTHOR>http://www.rautemusik.fm</AUTHOR>
+  <MOREINFO HREF="http://www.radio42.eu" />
+  <BANNER HREF="http://www.radio42.eu/images/logo_radio42.gif">
+          <MOREINFO href ="http://www.radio42.eu" />
+          <ABSTRACT>Visit also the homepage of r.a.d.i.o. 4 2 : Music for Lounge-Lovers. Downtempo.NuJazz.Ambient.Chillout.Lounge.Groove. Finest electronica chillout house nujazz funky beats provided by RauteMusik.FM and Global24Music.com</ABSTRACT>
+  </BANNER>
+</ENTRY>
+</REPEAT>
+</ASX>
