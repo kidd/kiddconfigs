@@ -416,3 +416,5 @@ endfunction
 map ,pp :call InsertPackageFromFile()<CR>
 let g:Perldoc_path="/home/rgrau/.vim/pdoc/"
 let Tlist_Use_Right_Window = 1
+
+map ,rr :!perl %<cr>

@@ -73,11 +73,14 @@ colors
 
 (ls --help 2>/dev/null |grep -- --color=) >/dev/null && \
 
+alias -g HL='| head -20'
+alias -g H='| head'
 alias -g TL='| tail -20'
 alias -g T='| tail'
 alias -g tr='-ltr'
 alias -g X='| xclip'
 alias -g L='| less'
+alias -g G='| grep '
 
 export JAVA_HOME="/usr/lib/java"
 export PATH="${JAVA_HOME}/bin:${PATH}"
@@ -90,6 +93,8 @@ alias lst='ls -ltr'
 alias ls='ls  --color=auto'
 alias lsç='ls  --color=auto'
 alias ll='ls -las  --color=auto'
+alias -g perl6='~/rakudo/perl6'
+alias ks='ls'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
@@ -203,12 +208,18 @@ fi
 export CPLUS_INCLUDE_PATH=/usr/local/include/eo:"$CPLUS_INCLUDE_PATH"
 export LIBRARY_PATH=/usr/local/lib:"$LIBRARY_PATH"
 
+#function hg_prompt_info {
+    #hg prompt --angle-brackets "\
+#< on %{$fg[magenta]%}<branch>%{$reset_color%}>\
+#< at %{$fg[yellow]%}<tags|%{$reset_color%}, %{$fg[yellow]%}>%{$reset_color%}>\
+#%{$fg[green]%}<status|modified|unknown><update>%{$reset_color%}<
+##patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset_color%})|pre_unapplied(%{$fg_bold[black]%})|post_unapplied(%{$reset_color%})>>" 2>/dev/null
+#}
+
 function hg_prompt_info {
     hg prompt --angle-brackets "\
 < on %{$fg[magenta]%}<branch>%{$reset_color%}>\
-#< at %{$fg[yellow]%}<tags|%{$reset_color%}, %{$fg[yellow]%}>%{$reset_color%}>\
-%{$fg[green]%}<status|modified|unknown><update>%{$reset_color%}<
-#patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset_color%})|pre_unapplied(%{$fg_bold[black]%})|post_unapplied(%{$reset_color%})>>" 2>/dev/null
+%{$fg[green]%}<status|modified|unknown><update>%{$reset_color%}%{$reset_color%}" 2>/dev/null
 }
 
 function prompt_char {
@@ -219,3 +230,4 @@ function prompt_char {
 
 PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(hg_prompt_info)'
 #RPROMPT='$(prompt_char)'
+# ls -l **/hgrc(-D)  locates hgrc files

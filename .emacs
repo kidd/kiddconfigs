@@ -1,4 +1,4 @@
-;; Time-stamp: <2010-02-04 14:03:31 rgrau>
+;; Time-stamp: <2010-06-08 11:38:05 rgrau>
 
 (add-hook 'before-save-hook 'time-stamp)
 (add-to-list 'load-path "~/elisp")
@@ -103,9 +103,9 @@
 (setq TeX-parse-self t)
 
 ;(setq viper-mode t)                ; enable Viper at load time
-(setq viper-ex-style-editing nil)  ; can backspace past start of insert / line
-(require 'viper)                   ; load Viper
-(require 'vimpulse)                ; load Vimpulse
+;(setq viper-ex-style-editing nil)  ; can backspace past start of insert / line
+;(require 'viper)                   ; load Viper
+;(require 'vimpulse)                ; load Vimpulse
 (setq woman-use-own-frame nil)     ; don't create new frame for manpages
 (setq woman-use-topic-at-point t)  ; don't prompt upon K key (manpage display)
 
@@ -246,6 +246,7 @@ the syntax class ')'."
  '(safe-local-variable-values (quote ((c++-member-init-indent . 8))))
  '(scheme-program-name "mzscheme")
  '(semanticdb-global-mode t nil (semanticdb))
+ '(tab-width 4)
  '(which-function-mode t))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
@@ -277,6 +278,17 @@ the syntax class ')'."
 
 ;; C and c++
 (setq tab-width 4)
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width) ;Cperl too
+
+;; (custom-set-variables 
+;;   ;; custom-set-variables was added by Custom. 
+;;   ;; If you edit it by hand, you could mess it up, so be careful. 
+;;   ;; Your init file should contain only one such instance. 
+;;   ;; If there is more than one, they won't work right. 
+;;  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))) 
+ 
+
 
 (add-hook 'c-mode-hook
 	  '(lambda()
@@ -285,3 +297,33 @@ the syntax class ')'."
 (add-hook 'c++-mode-hook
 	  '(lambda()
 	    (c-set-style "stroustrup")))
+
+(setq sql-user "root")
+;(setq sql-password "")
+(setq sql-database "cyllarus")
+(setq sql-server "localhost")
+
+;; (defvar sqldbs '(("cyllarus" "root" "" "localhost") ("hola" "tiu" "tu" "ketal") ))
+;; (defun mysql (db)
+;;   (interactive (string sqldbs))
+;;   (message "hola %s" db))
+
+
+;; sql-save history
+(defun my-sql-save-history-hook ()
+  (let ((lval 'sql-input-ring-file-name)
+	(rval 'sql-product))
+    (if (symbol-value rval)
+	(let ((filename 
+	       (concat "~/.emacs.d/sql/"
+		       (symbol-name (symbol-value rval))
+		       "-history.sql")))
+	  (set (make-local-variable lval) filename))
+      (error
+       (format "SQL history will not be saved because %s is nil"
+	       (symbol-name rval))))))
+(add-hook 'sql-interactive-mode-hook 'my-sql-save-history-hook)
+
+;; This is what you probably want if you are using a tiling window
+;; manager under X, such as ratpoison.
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
