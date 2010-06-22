@@ -100,8 +100,8 @@ alias -g ....='../../..'
 alias -g .....='../../../..'
 
 
-alias ts="prove --state=slow,save -j3 -r"
-alias tf="prove --state=failed,save -v -r"
+alias ts="prove -l --state=slow,save -j3 -r"
+alias tf="prove -l --state=failed,save -v -r"
 
 
 alias sshuni='ssh alu9854@exthost.etsii.ull.es'      
