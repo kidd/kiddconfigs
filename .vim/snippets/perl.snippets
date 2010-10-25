@@ -112,4 +112,20 @@ snippet pod
 
 	=cut
 
+snippet has
+	has '${1}' => (is => '${2:rw}',  isa => '${3}');${4}
+
+snippet moose
+	package ${1:Package}
+	use Moose;
+	use autobox;
+	use autobox::Core;
+	use Perl6::Say;
+
+
+	${2}
+	no Moose;
+	__PACKAGE__->meta->make_immutable;
+	1; # End of $1
+
 #exec "Snippet pod =head2 ".st."funname".et."<CR><CR>=over 4<CR><CR>=item Arguments:<CR><CR>=back<CR><CR>=cut<CR>".st.et
